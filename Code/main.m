@@ -41,11 +41,11 @@ P=rdiv(P,rsum(P));
 
 Mu=[]; Cov=[]; C=[]; % Mu is the mean, Cov is the covariance, C is the mixing weights of Gaussian components used in modeling the emission probability distribution
 %k means initialization for the emission probability represented by GMM
-d=size(Data_spectra,2);
+p=size(Data_spectra,2);
 idx=kmeans(Data_spectra,M);
 for i=1:M
     data=Data_spectra(find(idx ==i),:);
-    Mu(i).mixture=randn(K,d)*sqrtm(diag(diag(cov(data))))+ones(K,1)*mean(data);
+    Mu(i).mixture=randn(K,p)*sqrtm(diag(diag(cov(data))))+ones(K,1)*mean(data);
     Cov(i).mixture=rand(K,1);
 end
 
@@ -68,7 +68,7 @@ Gamma=[]; % posterior state probabailities along the observation sequence
 Viterbi_seq=[]; % optimal sequence of states from the Viterbi algorithm
 
 
-[P,LL,Mu,Cov,Pi,C,lambda]=HSMM_BaumWelch(Data_spectra,K,M,Mu,Cov,P,Pi,C,lambda,cyc,tol,d);
+[P,LL,Mu,Cov,Pi,C,lambda]=HSMM_BaumWelch(Data_spectra,K,M,Mu,Cov,P,Pi,C,lambda,cyc,tol,p);
 
 %%Use the HSMM parameters in Viterbi state decoding
 
