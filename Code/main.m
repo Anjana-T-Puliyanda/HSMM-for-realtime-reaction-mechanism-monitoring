@@ -75,7 +75,7 @@ Viterbi_seq=[]; % optimal sequence of states from the Viterbi algorithm
 disp('Viterbi state decoding')
 
 T=size(Data_spectra,1);
-[Jstar, Dstar]=hmm_gmm_ViterbiSCHMM(Data_spectra,T,K,M,Mu,Cov,P,Pi,C,lambda);
+[Jstar, Dstar]=hmm_gmm_ViterbiHSMM(Data_spectra,T,K,M,Mu,Cov,P,Pi,C,lambda);
 for ii=1:length(Jstar)
   Viterbi_seq=[repmat([Jstar(ii)],Dstar(ii),1)];
 end
@@ -84,7 +84,7 @@ end
 
 disp('Posterior state decoding')
 
-Gamma=posterior_decodingSCHMM(Data_spectra,T,K,M,Mu,Cov,P,Pi,C,lambda);
+Gamma=posterior_decodingHSMM(Data_spectra,T,K,M,Mu,Cov,P,Pi,C,lambda);
 
 
 
