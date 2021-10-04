@@ -7,7 +7,7 @@ clear all; close all; clc;
 
 %First let us read the data
 
-filename = 'Decreasing_temperature_data.csv';
+filename = 'Datasets/Decreasing_temperature_data.csv';
 DATA = csvread(filename);
 
 temperature= DATA(:,1); % the first column includes the temperatures
