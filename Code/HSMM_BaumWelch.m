@@ -352,8 +352,8 @@ for cycle=1:cyc
         end
         
         for m=1:M
-            num(m,1)=elnsum(num(m,1),elnproduct(gssm(m,1),elnScale(win).window));
-            denom=elnsum(denom, elnproduct(dss, elnScale(win).window));
+            num(m,1)=elnsum(num(m,1),elnproduct(gssm(m,1),elnScale));
+            denom=elnsum(denom, elnproduct(dss, elnScale));
         end
      
         
