@@ -84,7 +84,7 @@ end
 
 disp('Posterior state decoding')
 
-Gamma=posterior_decodingHSMM(Data_spectra,T,K,M,Mu,Cov,P,Pi,C,lambda);
+elnGamma=posterior_decodingHSMM(Data_spectra,T,K,M,Mu,Cov,P,Pi,C,lambda);
 
 
 
