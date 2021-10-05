@@ -28,7 +28,7 @@ for cycle=1:cyc
 
   iCov=[];k2=[];  
     
-  for i=1:T
+ for i=1:T
     for l=1:K
         ss=0;
         for m=1:M
@@ -39,8 +39,8 @@ for cycle=1:cyc
             iCov=inv(Cov(m).mixture(l)); k2=k1/sqrt(det( Cov(m).mixture(l) ));
             tempr(m).mixture(i,l)=C(l,m)*k2*exp(-0.5*d*iCov*d');
             ss=ss+tempr(m).mixture(i,l);
-       end
-       elnB(i,l)=eln(ss);
+        end
+        elnB(i,l)=eln(ss);
     end
  end
     
