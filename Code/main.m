@@ -29,14 +29,8 @@ Pi=Pi/sum(Pi);
 
 P=[];  % P is the transition probability 
 P=rand(K);
-for i=1:K
-  for r=1:K
-    if r==i
-      P(i,r)=0;
-    end
+P(find(eye(size(P)))) = 0; % set the self transition probability to zero
 
-  end
-end
 P=rdiv(P,rsum(P));
 
 Mu=[]; Cov=[]; C=[]; % Mu is the mean, Cov is the covariance, C is the mixing weights of Gaussian components used in modeling the emission probability distribution
