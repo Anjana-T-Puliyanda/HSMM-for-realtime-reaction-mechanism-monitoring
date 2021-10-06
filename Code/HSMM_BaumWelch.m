@@ -154,7 +154,7 @@ for cycle=1:cyc
     
     end
     
-    %changed this part to evaluate over mixtures
+    % this part to evaluates each mixture component's contribution to the posterior
     for m=1:M
         for i=1:K
             for t=1:T
@@ -198,7 +198,6 @@ for cycle=1:cyc
     % outputs
     for m=1:M
         num=NaN(K,p);denom=NaN(K,1);
-        %T=size(Data,1);
         dataw=eln(Data);  
         nss=NaN(K,p); dss=NaN(K,1); 
         for st=1:K
@@ -224,7 +223,7 @@ for cycle=1:cyc
   
         for st=1:K
             for pp=1:p
-                Mu(m).mixture(st,pp)=eexp(elnproduct(num(st,pp),-denom(st)));%rdiv(num,denom');
+                Mu(m).mixture(st,pp)=eexp(elnproduct(num(st,pp),-denom(st)));
             end
         end
     end
@@ -267,15 +266,9 @@ for cycle=1:cyc
         end
     end
  
-  
+    sxi(find(eye(size(sxi)))) = NaN;
 
-    for i=1:K
-        for r=1:K
-            if r==i
-                sxi(i,r)=NaN;
-            end
-        end
-    end
+    
 
     rwsm=NaN(K,1);
     for st=1:K
