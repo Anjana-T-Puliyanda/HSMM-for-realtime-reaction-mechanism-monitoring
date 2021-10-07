@@ -9,4 +9,4 @@ In both the datasets the first column contains the temperature sequence, the sec
 
 The numerical implementation of the HSMM follows the calculation of the conditional probabilities using logarithms, that are duly scaled by normalization to avoid instabilities during computation, as outlined in Mann, T. P.. “Numerically Stable Hidden Markov Model Implementation.” (2006).
 
-Run the main.m code file to train the HSMM on spectroscopic data, followed by using it for state decoding via the Viterbi algorithm, and inferences via the calculation of posterior probabilities.
+Run the Code/main.m code file to train the HSMM on spectroscopic data, followed by using it for state decoding via the Viterbi algorithm, and inferences via the calculation of posterior probabilities. The codes have been adapted from the pseudocodes provided in Chapter 5 of the book "Hidden Semi-Markov Models: Theory, Algorithms and Applications" by Shun-Zheng Yu.
