@@ -195,7 +195,7 @@ for cycle=1:cyc
   
     %%%% M STEP 
   
-    % outputs
+    % re-estimating Mu of the emission distribution
     for m=1:M
         num=NaN(K,p);denom=NaN(K,1);
         dataw=eln(Data);  
@@ -229,7 +229,7 @@ for cycle=1:cyc
     end
   
 
-    % transition matrix 
+    % re-estimating the transition matrix 
     num=NaN(1,K*K); denom=NaN(K,1);
     %T=size(Data,1);
     tsum=NaN(1,K*K);
@@ -284,7 +284,7 @@ for cycle=1:cyc
         end
     end
   
-    % priors
+    % re-estimating the initial state distribution
     Pi=NaN(1,K);
  
     for st=1:K
@@ -303,7 +303,7 @@ for cycle=1:cyc
     Pi=eexp(Pi);
 
   
-    % covariance
+    % re-estimating the covariance of the emission distribution
    
     for m=1:M
         num=NaN(K,1); denom=NaN(K,1);
@@ -327,7 +327,7 @@ for cycle=1:cyc
         end
     end
   
-    %mixture weights of gaussian probabilities
+    %re-estimating the mixture weights of gaussian probabilities of the emission distribution
            
     for st=1:K
         num=NaN(M,1); denom=NaN;
@@ -406,7 +406,6 @@ for cycle=1:cyc
     lik=elnsum(lik,elnScale);
 
   
-    %lik=sum(Scale);
     LL=[LL lik];
     fprintf('cycle %i log likelihood = %f ',cycle,lik);  
   
